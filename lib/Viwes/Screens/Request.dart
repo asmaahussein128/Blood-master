@@ -44,16 +44,6 @@ class _RequestBloodScreenState extends State<RequestBloodScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    //
-    // test(){
-    //   var result;
-    //   for(int i=0 ;i<=fav.length; i++){
-    //     result=  fav[i]['name']=Final[i]['Hospital'];
-    //   }
-    //   print("Result = = $result");
-    //   return result;
-    // };
-    // var namefiltr= fav.where((element) => element['name']=="${test()}");
     var Filter =
     Final.where((element) => element['Hospital'] == "$name").toList();
 
@@ -141,7 +131,7 @@ class _BodyListOfRequestState extends State<BodyListOfRequest> {
                               Card(
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15)),
-                                  color: Colors.white.withOpacity(.2),
+                                  color: Colors.white.withOpacity(.8),
                                   child:
                                   Padding(
                                     padding: const EdgeInsets.all(15.0),
@@ -160,7 +150,7 @@ class _BodyListOfRequestState extends State<BodyListOfRequest> {
                       child: Row(
                           children: [
                             Text(
-                              "Name: ",
+                              "Name : ",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 25,
@@ -168,9 +158,9 @@ class _BodyListOfRequestState extends State<BodyListOfRequest> {
                             ),
                             Container(
                                 alignment: Alignment.centerLeft,
-                                height: 50,
-                                width: 250,
-                                child: Text(
+                                height: 100,
+                                width: 220,
+                                                              child: Text(
                                     widget.name,
                                     style: TextStyle(
                                         fontSize: 25,
@@ -183,7 +173,7 @@ class _BodyListOfRequestState extends State<BodyListOfRequest> {
                       child: Row(
                           children: [
                             Text(
-                              "email: ",
+                              "email : ",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 25,
@@ -191,8 +181,8 @@ class _BodyListOfRequestState extends State<BodyListOfRequest> {
                             ),
                             Container(
                                 alignment: Alignment.centerLeft,
-                                height: 50,
-                                width: 250,
+                                height: 100,
+                                width: 220,
                                 child: Text(
                                     widget.email,
                                     style: TextStyle(
@@ -206,7 +196,7 @@ class _BodyListOfRequestState extends State<BodyListOfRequest> {
                       child: Row(
                           children: [
                             Text(
-                              "Phone: ",
+                              "Phone : ",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 25,
@@ -215,7 +205,6 @@ class _BodyListOfRequestState extends State<BodyListOfRequest> {
                             Container(
                                 alignment: Alignment.centerLeft,
                                 height: 50,
-                                width: 250,
                                 child: Text(
                                     widget.phone,
                                     style: TextStyle(
@@ -229,16 +218,14 @@ class _BodyListOfRequestState extends State<BodyListOfRequest> {
                       child: Row(
                           children: [
                             Text(
-                              "bloodType: ",
+                              "bloodType : ",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 25,
                                   color: Colors.orange),
                             ),
-                            Container(
+                            Container(height: 50,
                                 alignment: Alignment.centerLeft,
-                                height: 50,
-                                width: 150,
                                 child: Text(
                                     widget.bloodType,
                                     style: TextStyle(
@@ -252,16 +239,15 @@ class _BodyListOfRequestState extends State<BodyListOfRequest> {
                       child: Row(
                           children: [
                             Text(
-                              "DOrP: ",
+                              "DOrP : ",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 25,
                                   color: Colors.orange),
                             ),
-                            Container(
+                            Container(height: 50,
                                 alignment: Alignment.centerLeft,
-                                height: 50,
-                                width: 250,
+
                                 child: Text(
                                     widget.DOrP,
                                     style: TextStyle(
@@ -275,16 +261,15 @@ class _BodyListOfRequestState extends State<BodyListOfRequest> {
                       child: Row(
                           children: [
                             Text(
-                              "Age: ",
+                              "Age : ",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 25,
                                   color: Colors.orange),
                             ),
-                            Container(
+                            Container(height: 50,
                                 alignment: Alignment.centerLeft,
-                                height: 50,
-                                width: 250,
+
                                 child: Text(
                                     widget.age,
                                     style: TextStyle(
@@ -293,11 +278,9 @@ class _BodyListOfRequestState extends State<BodyListOfRequest> {
                                     ))),
                           ])
                   ),
-                  IconButton(onPressed: () async{
-                    setState(() async{
-                      await SQL.deleteAll();
-                    });
-                  }, icon: const Icon(Icons.delete)),
-                ])));
+                ])    , decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.green))));
   }
 }

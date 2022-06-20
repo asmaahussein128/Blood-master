@@ -6,9 +6,9 @@ class TextFiledTest extends StatelessWidget {
   bool hide;
   var typekeyboard;
   dynamic asmaa;
- //TextEditingController Controller= new TextEditingController();
+  dynamic hussein;
   TextFiledTest(
-      this.icon, this.hintText, this.hide, this.typekeyboard, this.asmaa,//this.Controller
+      this.icon, this.hintText, this.hide, this.typekeyboard, this.asmaa,this.hussein//this.Controller
       );
   @override
   Widget build(BuildContext context) {
@@ -16,8 +16,9 @@ class TextFiledTest extends StatelessWidget {
       height: 80,
       width: 80,
       child: Center(
-        child: TextField(//controller: Controller,
+        child: TextFormField(//controller: Controller,
           onChanged: asmaa,
+          validator: hussein,
           obscureText: hide,
           keyboardType: typekeyboard,
           decoration: InputDecoration(

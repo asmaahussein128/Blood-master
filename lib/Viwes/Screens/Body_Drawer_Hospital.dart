@@ -1,12 +1,11 @@
 import 'package:bloodbankasmaa/Controller/ApiLogin.dart';
 import 'package:bloodbankasmaa/Viwes/Widgets/My_Buttom.dart';
 import 'package:flutter/material.dart';
-
 import 'Profile.dart';
 import 'Request.dart';
 class BodyDrawerHospital extends StatefulWidget {
   const BodyDrawerHospital({Key? key}) : super(key: key);
-
+  static const String route = "BodyDrawerHospital";
   @override
   State<BodyDrawerHospital> createState() => _BodyDrawerHospitalState();
 }
@@ -24,27 +23,24 @@ class _BodyDrawerHospitalState extends State<BodyDrawerHospital> {
               height: 40,
             ),
             InkWell(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
-                  return RequestBloodScreen();
-                }));
-              },
+              onTap: () {    Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (BuildContext context) {
+                return RequestBloodScreen();
+              })); },
               child: Row(
-                children: [
-                  Icon(
-                    Icons.check,
-                    color: Colors.red[700],
-                    size: 40,
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
+                children: [  CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage("Assent/Image/WhatsApp Image 2022-06-16 at 11.08.55 AM (2).jpeg"),
+                ) , SizedBox(
+                  width: 20,
+                ),
+
                   Text(
                     "Requests",
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.red[800]),
+                        color: Colors.green[800]),
                   )
                 ],
               ),
@@ -57,36 +53,39 @@ class _BodyDrawerHospitalState extends State<BodyDrawerHospital> {
                 Logout(context);
               },
               child: Row(children: [
-                Icon(
-                  Icons.logout_rounded,
-                  color: Colors.red[700],
-                  size: 40,
-                ),
+                CircleAvatar(
+                  radius: 32,
+                  backgroundImage: AssetImage("Assent/Image/1000_F_295198999_I516vPVxTT5d2HxZIJu2NQx7I7hV5XdD.jpg"),
+                ) ,
                 SizedBox(
                   width: 20,
                 ),
                 Text("LogOut" ,  style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Colors.red[800]),)
+                    color: Colors.green[800]),)
               ]),
             ),
+
             SizedBox(
               height: 20,
             ),
-            MyBottom(
-                colors: Colors.red[900],
-                asmaa: () {
-                  getProfile();
-                  Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: MyBottom(
+                  colors: Colors.green[900],
+                  asmaa: () {
+                    getProfile();
+                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {
 
-                    return profile();
-                  }
+                      return profile();
+                    }
 
-                  ));
+                    ));
 
-                },
-                Name: "Profile"),],
+                  },
+                  Name: "Profile"),
+            ), ],
         ),
       ),
     );

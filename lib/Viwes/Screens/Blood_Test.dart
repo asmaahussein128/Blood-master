@@ -224,7 +224,7 @@ class _BloodTestState extends State<BloodTest> {
       body: Stack(
         children: [
           Container(
-            height: 400,
+            height: 350,
             child: Stack(
               children: [
                 ClipRRect(
@@ -232,7 +232,7 @@ class _BloodTestState extends State<BloodTest> {
                       BorderRadius.only(bottomRight: Radius.circular(150)),
                   child: Image.asset(
                     "Assent/Image/55.jpg",
-                    height: 400,
+                    height: 350,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -251,9 +251,9 @@ class _BloodTestState extends State<BloodTest> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 300, left: 25, right: 25),
+            padding: const EdgeInsets.only(top: 240, left: 25, right: 25),
             child: Container(
-              height: 500,
+              height: 420,
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.transparent,
@@ -292,11 +292,11 @@ class _BloodTestState extends State<BloodTest> {
                                       D=value;
                                       print("Value $value");
                                     });
-                              },),
+                              },null),
                         ],
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 15,
                       ),
                       Row(
                         children: [
@@ -317,7 +317,7 @@ class _BloodTestState extends State<BloodTest> {
                                       P=value;
                                       print("vVALUE $value");
                                     });
-                              },),
+                              },null),
                         ],
                       ),
                       SizedBox(

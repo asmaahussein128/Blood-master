@@ -5,6 +5,7 @@ import 'Text_Filed_Test.dart';
 class Rowtype extends StatelessWidget {
   String bloodtype;
   dynamic asmaa;
+  dynamic hussein;
   //var inputvalue;
   //TextEditingController inputvalue= TextEditingController();
   Rowtype(
@@ -32,7 +33,7 @@ class Rowtype extends StatelessWidget {
             width: 10,
           ),
 
-        TextFiledTest(Icons.quiz, "value", false,TextInputType.number , asmaa)
+        TextFiledTest(Icons.quiz, "value", false,TextInputType.number , asmaa,hussein)
         ],
       ),
     );

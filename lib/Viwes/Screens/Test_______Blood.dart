@@ -31,40 +31,42 @@ class _ResultState extends State<Result> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: data.isEmpty?Center(child: Text("No Blood" , style: TextStyle(fontSize: 30 , fontWeight: FontWeight.w500),),):
-        Center(
-      child: Container(
-        height: 380,
-        width: 500,
-        child: Stack(
-            alignment: Alignment.bottomRight,
-            children:[
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.grey,
-                  ),
-                  child: Column(
-                    children: [
-                      text("A+", 'a+'),
-                      text("B+", 'b+'),
-                      text("AB+", 'ab+'),
-                      text("O+", 'o+'),
-                      text("A-", 'a-'),
-                      text("B-", 'a-'),
-                      text("O-", 'o-'),
-                      text("AB-", 'ab-'),
-                    ],
-                  ),
+        body: data.isEmpty
+            ? Center(
+                child: Text(
+                  "No Blood",
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
                 ),
-              ),
-            ]
-        ),
-      )
-    ));
+              )
+            : Center(
+                child: Container(
+                height: 380,
+                width: 500,
+                child: Stack(alignment: Alignment.bottomRight, children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.grey,
+                      ),
+                      child: Column(
+                        children: [
+                          text("A+", 'a+'),
+                          text("B+", 'b+'),
+                          text("AB+", 'ab+'),
+                          text("O+", 'o+'),
+                          text("A-", 'a-'),
+                          text("B-", 'b-'),
+                          text("O-", 'o-'),
+                          text("AB-", 'ab-'),
+                        ],
+                      ),
+                    ),
+                  ),
+                ]),
+              )));
   }
 
   Widget text(name, view) {

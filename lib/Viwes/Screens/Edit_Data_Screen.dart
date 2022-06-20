@@ -16,9 +16,7 @@ class EditDataScreen extends StatefulWidget {
 class _EditDataScreenState extends State<EditDataScreen> {
   static var A;
   static var B;
-
   static var AB;
-
   static var O;
 
   static var AN;
@@ -151,10 +149,6 @@ class _EditDataScreenState extends State<EditDataScreen> {
               child: ListView(
                 scrollDirection: Axis.vertical,
                 children: [
-                  // Padding(
-                  //   padding: const EdgeInsets.all(8.0),
-                  //   child: TextField(decoration: InputDecoration(label: Text("Patient Name"),border: OutlineInputBorder(borderRadius: BorderRadius.circular(20))),),
-                  // ),
                   Rowtype(
                       bloodtype: "A+",
                       asmaa: (value) {
@@ -280,7 +274,7 @@ class _EditDataScreenState extends State<EditDataScreen> {
                     asmaa: (value) {
                       setState(() {
                         BN = value;
-                        print("Value B+ : $BN");
+                        print("Value B- : $BN");
                       });
                     },
                   ),
@@ -351,13 +345,17 @@ class _EditDataScreenState extends State<EditDataScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 UserButtom(
-                    asmaa: () {
+                    asmaa: ()async {
+                      await SQL.Insert(
+                          '''INSERT INTO blood ('a+' , 'b+' , 'ab+' , 'o+' , 'o-' , 'ab-' , 'a-' , 'b-')
+            VALUES("$A" , "$B" , "$AB" , "$O","$ON","$ABN","$AN" ,"$BN")  ''');
+
                       final snackBar = SnackBar(
                           backgroundColor: Colors.black,
                           content: Text("Saved Data..."));
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     },
-                    namebutton: Text("Edit Data",
+                    namebutton: Text("Save Data",
                         style: TextStyle(
                             fontSize: 20,
                             color: Colors.white,
@@ -367,17 +365,17 @@ class _EditDataScreenState extends State<EditDataScreen> {
                   height: 45,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  onPressed: () async {
-                    await SQL.Insert(
-                        '''INSERT INTO blood ('a+' , 'b+' , 'ab+' , 'o+' , 'o-' , 'ab-' , 'a-' , 'b-')
-            VALUES("$A" , "$B" , "$AB" , "$O","$ON","$ABN","$AN" ,"$BN")  ''');
+                  onPressed: ()  {
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (BuildContext context) {
-                      return Result();
-                    }));
+                          return Result();
+                        }));
                   },
-                  child: Text("Data"),
-                  color: Colors.redAccent,
+                  child: Text("Show Data",style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold)),
+                  color: Colors.red[700],
                 )
               ],
             )
